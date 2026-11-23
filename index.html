@@ -468,7 +468,7 @@
                         </div>
 
                         <!-- SVG Peta Skematis Modern - Kotak Presisi -->
-                        <svg viewBox="0 0 600 420"
+                        <svg id="map-skema" viewBox="0 0 600 420"
                             class="w-full h-auto rounded bg-[#FAF9F5] border border-slate-300/80 shadow-inner"
                             role="img" aria-label="Peta Skematis Simpul Aksi Mahasiswa di Tasikmalaya">
                             <!-- Grid Latar Peta & Simbol Ikon Universal -->
@@ -534,7 +534,7 @@
                                 letter-spacing="1">KAWASAN PENDIDIKAN</text>
 
                             <!-- PIN 1: KAMPUS FISIP UNSIL -->
-                            <g class="map-pin" onclick="selectMapLocation('unsil')" id="pin-unsil" tabindex="0"
+                            <g class="map-pin" onclick="selectMapLocation('unsil', true)" id="pin-unsil" tabindex="0"
                                 role="button" aria-label="Kampus FISIP Universitas Siliwangi">
                                 <circle cx="415" cy="280" r="23" fill="#2A6B5C" opacity="0.22" class="pulse-ring" />
                                 <circle cx="415" cy="280" r="18" fill="#2A6B5C" stroke="#FFFFFF" stroke-width="2.5" />
@@ -548,7 +548,7 @@
                             </g>
 
                             <!-- PIN 2: GEDUNG DPRD KOTA TASIKMALAYA -->
-                            <g class="map-pin pin-active" onclick="selectMapLocation('dprd')" id="pin-dprd" tabindex="0"
+                            <g class="map-pin pin-active" onclick="selectMapLocation('dprd', true)" id="pin-dprd" tabindex="0"
                                 role="button" aria-label="Gedung DPRD Kota Tasikmalaya">
                                 <circle cx="270" cy="190" r="23" fill="#2A6B5C" opacity="0.22" class="pulse-ring" />
                                 <circle cx="270" cy="190" r="18" fill="#2A6B5C" stroke="#2A6B5C" stroke-width="3.5" />
@@ -562,7 +562,7 @@
                             </g>
 
                             <!-- PIN 3: BALAI KOTA TASIKMALAYA -->
-                            <g class="map-pin" onclick="selectMapLocation('balkot')" id="pin-balkot" tabindex="0"
+                            <g class="map-pin" onclick="selectMapLocation('balkot', true)" id="pin-balkot" tabindex="0"
                                 role="button" aria-label="Balai Kota Tasikmalaya">
                                 <circle cx="205" cy="130" r="23" fill="#2A6B5C" opacity="0.22" class="pulse-ring" />
                                 <circle cx="205" cy="130" r="18" fill="#2A6B5C" stroke="#FFFFFF" stroke-width="2.5" />
@@ -576,7 +576,7 @@
                             </g>
 
                             <!-- PIN 4: RUANG PUBLIK DIGITAL / INSTAGRAM -->
-                            <g class="map-pin" onclick="selectMapLocation('digital')" id="pin-digital" tabindex="0"
+                            <g class="map-pin" onclick="selectMapLocation('digital', true)" id="pin-digital" tabindex="0"
                                 role="button" aria-label="Ruang Digital Instagram">
                                 <circle cx="445" cy="105" r="23" fill="#2A6B5C" opacity="0.25" class="pulse-ring" />
                                 <circle cx="445" cy="105" r="18" fill="#2A6B5C" stroke="#FFFFFF" stroke-width="2.5" />
@@ -592,19 +592,19 @@
 
                         <!-- Tombol Pintas Lokasi di Bawah Peta -->
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-3">
-                            <button onclick="selectMapLocation('unsil')"
+                            <button onclick="selectMapLocation('unsil', true)"
                                 class="loc-btn px-2.5 py-2 text-xs font-semibold bg-white border border-slate-300 text-navy hover:border-secondary transition flex items-center justify-center gap-1.5 shadow-sm rounded">
                                 <i class="fa-solid fa-graduation-cap text-secondary"></i> <span>Kampus Unsil</span>
                             </button>
-                            <button onclick="selectMapLocation('dprd')"
+                            <button onclick="selectMapLocation('dprd', true)"
                                 class="loc-btn active px-2.5 py-2 text-xs font-semibold bg-navy text-white transition flex items-center justify-center gap-1.5 shadow-sm rounded">
                                 <i class="fa-solid fa-landmark-dome text-secondary-light"></i> <span>Gedung DPRD</span>
                             </button>
-                            <button onclick="selectMapLocation('balkot')"
+                            <button onclick="selectMapLocation('balkot', true)"
                                 class="loc-btn px-2.5 py-2 text-xs font-semibold bg-white border border-slate-300 text-navy hover:border-secondary transition flex items-center justify-center gap-1.5 shadow-sm rounded">
                                 <i class="fa-solid fa-city text-secondary"></i> <span>Balai Kota</span>
                             </button>
-                            <button onclick="selectMapLocation('digital')"
+                            <button onclick="selectMapLocation('digital', true)"
                                 class="loc-btn px-2.5 py-2 text-xs font-semibold bg-white border border-slate-300 text-navy hover:border-secondary transition flex items-center justify-center gap-1.5 shadow-sm rounded">
                                 <i class="fa-brands fa-instagram text-secondary"></i> <span>Ruang Digital</span>
                             </button>

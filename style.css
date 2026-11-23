@@ -220,9 +220,20 @@ body {
 
 .pulse-ring {
     animation: pulseRing 2.4s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    opacity: 0.85;
     transform-box: fill-box;
     transform-origin: center;
     pointer-events: none;
+}
+
+svg.map-motion-active .pulse-ring {
+    animation: none;
+    opacity: 0;
+}
+
+svg.map-motion-active .map-pin.pin-pulse .pulse-ring {
+    animation: pulseRing 1.8s cubic-bezier(0.24, 0, 0.38, 1) 2;
+    opacity: 0.85;
 }
 
 @keyframes pulseRing {

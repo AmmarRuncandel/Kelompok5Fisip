@@ -411,7 +411,7 @@ function showBentukAksiDetail(aksiKey) {
 // 4. FUNGSI TAB 2: PETA SPASIAL & SIMULASI ALUR GERAKAN (ANTI TUMPANG TINDIH)
 // =============================================================================
 
-function selectMapLocation(locKey) {
+function selectMapLocation(locKey, animatePulse = false, pulseMode = 'click') {
     const loc = dataLokasi[locKey];
     if (!loc) return;
 
@@ -459,10 +459,30 @@ function selectMapLocation(locKey) {
     // Sorot Pin SVG yang aktif
     document.querySelectorAll('.map-pin').forEach(pin => {
         pin.classList.remove('pin-active');
+        pin.classList.remove('pin-pulse');
+        if (pin.pulseTimeout) {
+            clearTimeout(pin.pulseTimeout);
+            pin.pulseTimeout = null;
+        }
     });
     const activePin = document.getElementById('pin-' + locKey);
     if (activePin) {
         activePin.classList.add('pin-active');
+        if (animatePulse) {
+            activePin.getBoundingClientRect();
+            activePin.classList.add('pin-pulse');
+
+            const mapSvg = document.getElementById('map-skema');
+            if (mapSvg) mapSvg.classList.add('map-motion-active');
+
+            if (pulseMode === 'click' && !simulationInterval) {
+                clearTimeout(activePin.pulseTimeout);
+                activePin.pulseTimeout = setTimeout(() => {
+                    document.querySelectorAll('.map-pin').forEach(pin => pin.classList.remove('pin-pulse'));
+                    if (mapSvg) mapSvg.classList.remove('map-motion-active');
+                }, 3600);
+            }
+        }
     }
 }
 
@@ -481,13 +501,15 @@ function startMovementSimulation() {
     if (simulationInterval) {
         clearInterval(simulationInterval);
         simulationInterval = null;
+        document.querySelectorAll('.map-pin').forEach(pin => pin.classList.remove('pin-pulse'));
+        document.getElementById('map-skema')?.classList.remove('map-motion-active');
         if (simBtn) simBtn.innerHTML = `<i class="fa-solid fa-play mr-1.5"></i> Putar Simulasi Alur Gerakan`;
         showToast("Simulasi gerakan dihentikan.");
         return;
     }
 
     let currentIndex = 0;
-    selectMapLocation(steps[currentIndex]);
+    selectMapLocation(steps[currentIndex], true, 'simulation');
     showToast(`Memulai Simulasi: ${phaseNames[currentIndex]}`);
     if (simBtn) simBtn.innerHTML = `<i class="fa-solid fa-pause mr-1.5"></i> Hentikan Simulasi`;
 
@@ -496,11 +518,13 @@ function startMovementSimulation() {
         if (currentIndex >= steps.length) {
             clearInterval(simulationInterval);
             simulationInterval = null;
+            document.querySelectorAll('.map-pin').forEach(pin => pin.classList.remove('pin-pulse'));
+            document.getElementById('map-skema')?.classList.remove('map-motion-active');
             if (simBtn) simBtn.innerHTML = `<i class="fa-solid fa-play mr-1.5"></i> Putar Ulang Simulasi`;
             showToast("Simulasi selesai. Seluruh tahapan gerakan telah ditampilkan.");
             return;
         }
-        selectMapLocation(steps[currentIndex]);
+        selectMapLocation(steps[currentIndex], true, 'simulation');
         showToast(`Alur Gerakan: ${phaseNames[currentIndex]}`);
     }, 3800);
 }
