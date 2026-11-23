@@ -135,6 +135,7 @@ const dataLokasi = {
     unsil: {
         badge: "Simpul 01 • Basis Konsolidasi & Intelektual",
         sumber: "Sumber: Wawancara 6 Informan (4 Organisasi)",
+        ikon: "fa-solid fa-graduation-cap",
         title: "Kampus FISIP Universitas Siliwangi",
         subtitle: "Pusat Diskusi Ruang Publik, Perumusan Kajian, & Rekrutmen",
         aksi: "Menjadi titik awal konsolidasi lintas organisasi mahasiswa FISIP Unsil. Di ruang inilah mahasiswa menyusun kajian akademis, merumuskan naskah kebijakan (policy brief), dan mematangkan konsolidasi sebelum turun ke lapangan.",
@@ -144,6 +145,7 @@ const dataLokasi = {
     dprd: {
         badge: "Simpul 02 • Pusat Legislatif Daerah",
         sumber: "Sumber: Analisis 8 Berita Aksi & Wawancara",
+        ikon: "fa-solid fa-landmark-dome",
         title: "Gedung DPRD Kota Tasikmalaya",
         subtitle: "Titik Utama Demonstrasi, Audiensi, & Penyampaian Tuntutan",
         aksi: "Demonstrasi lapangan dan audiensi terbuka oleh aliansi organisasi mahasiswa (termasuk PMII dan elemen FISIP Unsil) menyoroti tata kelola pemerintahan daerah, transparansi anggaran, serta kualitas pelayanan publik.",
@@ -153,6 +155,7 @@ const dataLokasi = {
     balkot: {
         badge: "Simpul 03 • Pusat Eksekutif Pemerintah Kota",
         sumber: "Sumber: Studi Dokumen Berita Lokal",
+        ikon: "fa-solid fa-city",
         title: "Balai Kota Tasikmalaya",
         subtitle: "Penyampaian Pernyataan Sikap & Tuntutan Pelayanan Publik",
         aksi: "Aksi simbolik, pembacaan pernyataan sikap, dan penyerahan dokumen tuntutan terkait isu lingkungan (pengelolaan sampah), pendidikan, dan reformasi birokrasi pelayanan publik kepada Pemerintah Kota.",
@@ -162,6 +165,7 @@ const dataLokasi = {
     digital: {
         badge: "Simpul 04 • Ruang Publik Virtual (Habermas)",
         sumber: "Sumber: Observasi 3 Unggahan Instagram PMII",
+        ikon: "fa-brands fa-instagram",
         title: "Ruang Digital & Media Sosial (Instagram)",
         subtitle: "Propaganda Grafis, Penyebaran Informasi, & Dialektika Warga",
         aksi: "Publikasi poster seruan aksi, rilis pernyataan sikap, dan infografis kajian melalui akun Instagram organisasi mahasiswa sebagai penguat (amplifier) aksi lapangan.",
@@ -281,8 +285,8 @@ function switchTab(tabId) {
 
     // Reset tombol tab
     document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active', 'bg-taupe', 'text-navy-dark', 'shadow-md');
-        btn.classList.add('bg-navy-light/50', 'text-slate-200');
+        btn.classList.remove('active', 'bg-navy-light', 'text-white', 'shadow-md', 'bg-taupe');
+        btn.classList.add('bg-navy-dark/70', 'text-emerald-100');
     });
 
     // Tampilkan tab terpilih
@@ -294,8 +298,8 @@ function switchTab(tabId) {
     // Aktifkan style tombol terpilih
     const activeBtn = document.getElementById('btn-tab-' + tabId);
     if (activeBtn) {
-        activeBtn.classList.remove('bg-navy-light/50', 'text-slate-200');
-        activeBtn.classList.add('active', 'bg-taupe', 'text-navy-dark', 'shadow-md');
+        activeBtn.classList.remove('bg-navy-dark/70', 'text-emerald-100');
+        activeBtn.classList.add('active', 'bg-navy-light', 'text-white', 'shadow-md');
     }
 }
 
@@ -420,9 +424,9 @@ function selectMapLocation(locKey) {
     const framing = document.getElementById('loc-framing');
     const respons = document.getElementById('loc-respons');
 
-    if (badge) badge.textContent = loc.badge;
+    if (badge) badge.innerHTML = `<i class="${loc.ikon || 'fa-solid fa-location-dot'} mr-1.5 text-secondary-light"></i> ${loc.badge}`;
     if (sumber) sumber.textContent = loc.sumber;
-    if (title) title.textContent = loc.title;
+    if (title) title.innerHTML = `<i class="${loc.ikon || 'fa-solid fa-location-dot'} text-secondary mr-2"></i> ${loc.title}`;
     if (subtitle) subtitle.textContent = loc.subtitle;
     if (aksi) aksi.textContent = loc.aksi;
     if (framing) framing.textContent = loc.framing;
@@ -432,13 +436,24 @@ function selectMapLocation(locKey) {
     document.querySelectorAll('.loc-btn').forEach(btn => {
         btn.classList.remove('active', 'bg-navy', 'text-white');
         btn.classList.add('bg-white', 'text-navy');
+        const icon = btn.querySelector('i');
+        if (icon) {
+            icon.classList.remove('text-secondary-light');
+            icon.classList.add('text-secondary');
+        }
     });
 
     const mapOrder = { unsil: 0, dprd: 1, balkot: 2, digital: 3 };
     const allLocBtns = document.querySelectorAll('.loc-btn');
     if (allLocBtns && allLocBtns[mapOrder[locKey]]) {
-        allLocBtns[mapOrder[locKey]].classList.remove('bg-white', 'text-navy');
-        allLocBtns[mapOrder[locKey]].classList.add('active', 'bg-navy', 'text-white');
+        const activeBtn = allLocBtns[mapOrder[locKey]];
+        activeBtn.classList.remove('bg-white', 'text-navy');
+        activeBtn.classList.add('active', 'bg-navy', 'text-white');
+        const icon = activeBtn.querySelector('i');
+        if (icon) {
+            icon.classList.remove('text-secondary');
+            icon.classList.add('text-secondary-light');
+        }
     }
 
     // Sorot Pin SVG yang aktif
@@ -507,6 +522,9 @@ function getStatusBadge(status) {
     }
 }
 
+// State filter aktif untuk matriks
+let currentFilterStatus = 'semua';
+
 function renderMatriks() {
     const searchInput = document.getElementById('search-matriks');
     const statusSelect = document.getElementById('filter-status-matriks');
@@ -515,7 +533,9 @@ function renderMatriks() {
     if (!tbody) return;
 
     const keyword = searchInput ? searchInput.value.toLowerCase().trim() : '';
-    const statusFilter = statusSelect ? statusSelect.value : 'semua';
+    let statusFilter = statusSelect && statusSelect.value ? statusSelect.value : currentFilterStatus;
+    if (!statusFilter) statusFilter = currentFilterStatus || 'semua';
+    currentFilterStatus = statusFilter;
 
     const filtered = daftarMatriks.filter(item => {
         const matchKeyword = item.judul.toLowerCase().includes(keyword) || 
@@ -524,7 +544,7 @@ function renderMatriks() {
                              item.instansi.toLowerCase().includes(keyword);
         
         let matchStatus = true;
-        if (statusFilter === 'semua') {
+        if (statusFilter === 'semua' || !statusFilter) {
             matchStatus = true;
         } else if (statusFilter === 'proses') {
             matchStatus = (item.status === 'Dalam Kajian Dinas' || item.status === 'Menunggu Respons');
@@ -547,10 +567,15 @@ function renderMatriks() {
 
     // Perbarui active state pada quick filter stat-card
     document.querySelectorAll('.stat-card').forEach(card => card.classList.remove('stat-active'));
-    if (statusFilter === 'semua') document.getElementById('card-stat-total')?.classList.add('stat-active');
-    else if (statusFilter === 'Dibahas di Bapemperda') document.getElementById('card-stat-bapemperda')?.classList.add('stat-active');
-    else if (statusFilter === 'Dijadwalkan Public Hearing') document.getElementById('card-stat-hearing')?.classList.add('stat-active');
-    else if (statusFilter === 'proses') document.getElementById('card-stat-proses')?.classList.add('stat-active');
+    if (statusFilter === 'semua') {
+        document.getElementById('card-stat-total')?.classList.add('stat-active');
+    } else if (statusFilter === 'Dibahas di Bapemperda') {
+        document.getElementById('card-stat-bapemperda')?.classList.add('stat-active');
+    } else if (statusFilter === 'Dijadwalkan Public Hearing') {
+        document.getElementById('card-stat-hearing')?.classList.add('stat-active');
+    } else if (statusFilter === 'proses' || statusFilter === 'Dalam Kajian Dinas' || statusFilter === 'Menunggu Respons') {
+        document.getElementById('card-stat-proses')?.classList.add('stat-active');
+    }
 
     if (filtered.length === 0) {
         tbody.innerHTML = `
@@ -564,7 +589,7 @@ function renderMatriks() {
     }
 
     tbody.innerHTML = filtered.map(item => `
-        <tr class="hover:bg-slate-50 transition border-b border-slate-100 last:border-b-0">
+        <tr class="hover:bg-emerald-50/40 transition border-b border-slate-100 last:border-b-0 fade-in">
             <td class="py-3 px-3.5 align-top">
                 <div class="font-bold text-navy leading-snug hover:underline cursor-pointer" onclick="showModalDetailAspirasi(${item.id})">
                     ${item.judul}
@@ -620,11 +645,12 @@ function renderMatriks() {
 
 // Quick Filter dari Statistik Card
 function quickFilterStatus(status) {
+    currentFilterStatus = status;
     const select = document.getElementById('filter-status-matriks');
     if (select) {
         select.value = status;
-        renderMatriks();
     }
+    renderMatriks();
 }
 
 // Modal Detail Lengkap Aspirasi (Audit Trail & Naskah) - Kotak Proporsional
@@ -950,4 +976,13 @@ window.addEventListener('DOMContentLoaded', () => {
     renderMatriks();
     selectMapLocation('dprd'); // Default pin terpilih di Tab 2
     showTeoriDetail('aktor');  // Default teori terpilih di Tab 1
+
+    document.querySelectorAll('.map-pin').forEach(pin => {
+        pin.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                pin.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+            }
+        });
+    });
 });

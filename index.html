@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peta Partisipasi Politik & Matriks Tindak Lanjut | Kelompok 5 FISIP Unsil</title>
-    
+
     <!-- Google Fonts: Inter & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Font Awesome Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -25,20 +28,31 @@
                     },
                     colors: {
                         navy: {
-                            DEFAULT: '#1B365D',
-                            dark: '#12243F',
-                            light: '#2A4D7E'
+                            DEFAULT: '#2A6B5C',
+                            dark: '#143830',
+                            light: '#3A8775',
+                            soft: '#EDF5F2'
+                        },
+                        secondary: {
+                            DEFAULT: '#2A6B5C',
+                            dark: '#143830',
+                            light: '#3A8775',
+                            soft: '#EDF5F2'
                         },
                         slateBlue: {
-                            DEFAULT: '#3B5B78',
-                            light: '#52789B',
-                            soft: '#EBF1F6'
+                            DEFAULT: '#224C41',
+                            light: '#417568',
+                            soft: '#EDF5F2'
                         },
                         taupe: {
-                            DEFAULT: '#BFA898',
-                            dark: '#9E8574',
-                            light: '#DFD2C8',
-                            soft: '#F7F4F1'
+                            DEFAULT: '#2A6B5C',
+                            dark: '#143830',
+                            light: '#4A9684',
+                            soft: '#F0F7F5'
+                        },
+                        bone: {
+                            DEFAULT: '#FAF9F6',
+                            dark: '#EFEFEA'
                         }
                     }
                 }
@@ -52,18 +66,22 @@
     <!-- Skrip Interaktif Terpisah -->
     <script src="app.js" defer></script>
 </head>
-<body class="min-h-screen flex flex-col antialiased selection:bg-navy selection:text-white">
+
+<body class="min-h-screen flex flex-col antialiased selection:bg-navy selection:text-white bg-[#FAF9F6] text-[#0B1120]">
 
     <!-- Notifikasi Toast (Pemberitahuan Interaktif) -->
-    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none max-w-sm w-full px-4 sm:px-0"></div>
+    <div id="toast-container"
+        class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none max-w-sm w-full px-4 sm:px-0"></div>
 
     <!-- Modal Global Serbaguna (Detail Aspirasi & Teori) - Kotak Proporsional -->
     <div id="modal-global" class="modal-backdrop hidden" onclick="if(event.target === this) closeModalGlobal()">
         <div class="modal-content-box p-5 sm:p-6 relative">
-            <button onclick="closeModalGlobal()" class="absolute top-4 right-4 text-slate-400 hover:text-navy transition text-sm w-7 h-7 rounded bg-slate-100 flex items-center justify-center">
+            <button onclick="closeModalGlobal()"
+                class="absolute top-4 right-4 text-slate-400 hover:text-navy transition text-sm w-7 h-7 rounded bg-slate-100 flex items-center justify-center">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <h3 id="modal-title" class="font-display text-base sm:text-lg font-bold text-navy pr-8 mb-3.5 border-b border-slate-100 pb-2.5 flex items-center">
+            <h3 id="modal-title"
+                class="font-display text-base sm:text-lg font-bold text-navy pr-8 mb-3.5 border-b border-slate-100 pb-2.5 flex items-center">
                 <!-- Judul Modal Diatur Lewat JS -->
             </h3>
             <div id="modal-body">
@@ -78,51 +96,57 @@
     <header class="header-academic text-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
             <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3.5">
-                
+
                 <!-- Identitas Penelitian & Logo -->
                 <div class="flex items-start sm:items-center gap-3.5">
-                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded bg-slateBlue/80 border border-taupe/50 flex items-center justify-center shrink-0 shadow-inner">
-                        <i class="fa-solid fa-landmark-dome text-taupe-light text-xl"></i>
+                    <div
+                        class="w-11 h-11 sm:w-12 sm:h-12 rounded bg-navy-dark border border-navy-light/60 flex items-center justify-center shrink-0 shadow-inner">
+                        <i class="fa-solid fa-landmark-dome text-emerald-200 text-xl"></i>
                     </div>
                     <div>
-                        <div class="flex flex-wrap items-center gap-2 text-xs font-medium text-taupe-light uppercase tracking-wider mb-0.5">
-                            <span class="bg-navy-dark/90 px-2 py-0.5 rounded border border-taupe/30">Purwarupa Luaran Penelitian</span>
+                        <div
+                            class="flex flex-wrap items-center gap-2 text-xs font-medium text-emerald-100 uppercase tracking-wider mb-0.5">
+                            <span
+                                class="bg-navy-dark px-2 py-0.5 rounded border border-navy-light/40 text-emerald-200">Purwarupa
+                                Luaran Penelitian</span>
                             <span>•</span>
                             <span>FISIP Universitas Siliwangi</span>
                         </div>
                         <h1 class="font-display text-base sm:text-xl font-bold leading-snug text-white">
                             Peta Partisipasi Politik Non-Konvensional & Matriks Tindak Lanjut Aspirasi
                         </h1>
-                        <p class="text-xs text-slate-300 mt-0.5">
-                            Studi Kasus Mahasiswa FISIP Unsil di Kota Tasikmalaya • Mata Kuliah Perilaku dan Etika Politik
+                        <p class="text-xs text-emerald-100/80 mt-0.5">
+                            Studi Kasus Mahasiswa FISIP Unsil di Kota Tasikmalaya • Mata Kuliah Perilaku dan Etika
+                            Politik
                         </p>
                     </div>
                 </div>
 
                 <!-- Badge Kelompok & Dosen Pengampu -->
-                <div class="bg-navy-dark/80 border border-slateBlue/60 rounded px-3 py-2 text-xs text-slate-200 shrink-0">
-                    <div class="font-semibold text-taupe-light flex items-center gap-1.5">
-                        <i class="fa-solid fa-users"></i> Kelompok 5 (Kelas Ilmu Politik)
+                <div
+                    class="bg-navy-dark/95 border border-navy-light/50 rounded px-3 py-2 text-xs text-slate-200 shrink-0 shadow-sm">
+                    <div class="font-semibold text-white flex items-center gap-1.5">
+                        <i class="fa-solid fa-users text-emerald-300"></i> Kelompok 5 (Kelas Ilmu Politik)
                     </div>
-                    <div class="text-slate-300 mt-0.5 text-[11px]">Dosen: Fitriyani Yuliawati, S.IP., M.Si.</div>
+                    <div class="text-emerald-100/70 mt-0.5 text-[11px]">Dosen: Fitriyani Yuliawati, S.IP., M.Si.</div>
                 </div>
             </div>
 
             <!-- Navigasi 3 Tab Utama - Kotak Halus -->
-            <nav class="mt-4 border-t border-slateBlue/40 pt-3" aria-label="Menu Utama">
+            <nav class="mt-4 border-t border-emerald-800/40 pt-3" aria-label="Menu Utama">
                 <div class="tab-nav-container">
                     <button onclick="switchTab('ekosistem')" id="btn-tab-ekosistem"
-                        class="tab-btn active flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-semibold bg-taupe text-navy-dark shadow-sm">
+                        class="tab-btn active flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-semibold bg-navy-light text-white shadow-sm">
                         <i class="fa-solid fa-diagram-project"></i>
                         <span>1. Peta Partisipasi & Ekosistem Aksi</span>
                     </button>
                     <button onclick="switchTab('peta-tasik')" id="btn-tab-peta-tasik"
-                        class="tab-btn flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-semibold bg-navy-light/50 text-slate-200 hover:bg-slateBlue hover:text-white">
+                        class="tab-btn flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-semibold bg-navy-dark/70 text-emerald-100 hover:bg-navy hover:text-white">
                         <i class="fa-solid fa-map-location-dot"></i>
                         <span>2. Peta Konsentrasi Aksi Tasikmalaya</span>
                     </button>
                     <button onclick="switchTab('matriks')" id="btn-tab-matriks"
-                        class="tab-btn flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-semibold bg-navy-light/50 text-slate-200 hover:bg-slateBlue hover:text-white">
+                        class="tab-btn flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-semibold bg-navy-dark/70 text-emerald-100 hover:bg-navy hover:text-white">
                         <i class="fa-solid fa-table-list"></i>
                         <span>3. Platform & Matriks Tindak Lanjut</span>
                     </button>
@@ -143,12 +167,16 @@
 
             <!-- Ringkasan Eksekutif & Filter Klaster Isu -->
             <div class="bg-white rounded-md p-4 sm:p-5 shadow-sm border border-slate-200">
-                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3.5 pb-4 border-b border-slate-100">
+                <div
+                    class="flex flex-col lg:flex-row lg:items-center justify-between gap-3.5 pb-4 border-b border-slate-100">
                     <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-slateBlue">Pemetaan Konseptual & Analisis Teoretis</span>
-                        <h2 class="font-display text-lg sm:text-xl font-bold text-navy mt-0.5">Ekosistem Partisipasi Non-Konvensional Mahasiswa FISIP Unsil</h2>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slateBlue">Pemetaan Konseptual &
+                            Analisis Teoretis</span>
+                        <h2 class="font-display text-lg sm:text-xl font-bold text-navy mt-0.5">Ekosistem Partisipasi
+                            Non-Konvensional Mahasiswa FISIP Unsil</h2>
                         <p class="text-xs sm:text-sm text-slate-600 mt-0.5">
-                            Pilih <strong>Filter Isu</strong> di kanan untuk melihat studi kasus spesifik, atau klik kolom untuk bedah teori.
+                            Pilih <strong>Filter Isu</strong> di kanan untuk melihat studi kasus spesifik, atau klik
+                            kolom untuk bedah teori.
                         </p>
                     </div>
 
@@ -157,11 +185,19 @@
                         <span class="text-xs font-semibold text-slate-500 mr-1 flex items-center gap-1">
                             <i class="fa-solid fa-filter"></i> Filter Isu:
                         </span>
-                        <button onclick="filterIsuEkosistem('semua', event)" class="isu-filter-btn active px-2.5 py-1 text-xs font-semibold bg-navy text-white">Semua Isu (4)</button>
-                        <button onclick="filterIsuEkosistem('tata-kelola', event)" class="isu-filter-btn px-2.5 py-1 text-xs font-semibold bg-slate-100 text-slate-700">Tata Kelola</button>
-                        <button onclick="filterIsuEkosistem('lingkungan', event)" class="isu-filter-btn px-2.5 py-1 text-xs font-semibold bg-slate-100 text-slate-700">Lingkungan</button>
-                        <button onclick="filterIsuEkosistem('pendidikan', event)" class="isu-filter-btn px-2.5 py-1 text-xs font-semibold bg-slate-100 text-slate-700">Pendidikan</button>
-                        <button onclick="filterIsuEkosistem('pelayanan', event)" class="isu-filter-btn px-2.5 py-1 text-xs font-semibold bg-slate-100 text-slate-700">Pelayanan Publik</button>
+                        <button onclick="filterIsuEkosistem('semua', event)"
+                            class="isu-filter-btn active px-2.5 py-1 text-xs font-semibold bg-navy text-white">Semua Isu
+                            (4)</button>
+                        <button onclick="filterIsuEkosistem('tata-kelola', event)"
+                            class="isu-filter-btn px-2.5 py-1 text-xs font-semibold bg-slate-100 text-slate-700">Tata
+                            Kelola</button>
+                        <button onclick="filterIsuEkosistem('lingkungan', event)"
+                            class="isu-filter-btn px-2.5 py-1 text-xs font-semibold bg-slate-100 text-slate-700">Lingkungan</button>
+                        <button onclick="filterIsuEkosistem('pendidikan', event)"
+                            class="isu-filter-btn px-2.5 py-1 text-xs font-semibold bg-slate-100 text-slate-700">Pendidikan</button>
+                        <button onclick="filterIsuEkosistem('pelayanan', event)"
+                            class="isu-filter-btn px-2.5 py-1 text-xs font-semibold bg-slate-100 text-slate-700">Pelayanan
+                            Publik</button>
                     </div>
                 </div>
 
@@ -169,134 +205,186 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mt-5">
 
                     <!-- Kolom 1: Aktor & Basis Mobilisasi -->
-                    <div onclick="showTeoriDetail('aktor')" id="card-teori-aktor" class="ekosistem-card card-active cursor-pointer group bg-slateBlue-soft/60 hover:bg-slateBlue-soft border-slateBlue/20 hover:border-navy p-4 flex flex-col justify-between">
+                    <div onclick="showTeoriDetail('aktor')" id="card-teori-aktor"
+                        class="ekosistem-card card-active cursor-pointer group bg-slateBlue-soft/60 hover:bg-slateBlue-soft border-slateBlue/20 hover:border-navy p-4 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-2.5">
-                                <span class="px-2 py-0.5 rounded bg-navy text-white text-[11px] font-bold">1. AKTOR & BASIS</span>
+                                <span class="px-2 py-0.5 rounded bg-navy text-white text-[11px] font-bold">1. AKTOR &
+                                    BASIS</span>
                                 <i class="fa-solid fa-circle-info text-slateBlue group-hover:text-navy transition"></i>
                             </div>
-                            <h3 id="card-aktor-sub" class="font-display font-bold text-navy text-sm sm:text-base mb-1.5">4 Organisasi / Komunitas Mahasiswa FISIP Unsil</h3>
+                            <h3 id="card-aktor-sub"
+                                class="font-display font-bold text-navy text-sm sm:text-base mb-1.5">4 Organisasi /
+                                Komunitas Mahasiswa FISIP Unsil</h3>
                             <p id="card-aktor-desc" class="text-xs text-slate-600 mb-3 leading-relaxed">
-                                Termasuk <strong>PMII</strong> & komunitas kajian mahasiswa sebagai pusat konsolidasi, perumusan naskah, dan rekrutmen massa.
+                                Termasuk <strong>PMII</strong> & komunitas kajian mahasiswa sebagai pusat konsolidasi,
+                                perumusan naskah, dan rekrutmen massa.
                             </p>
                             <div class="space-y-1.5">
                                 <div class="bg-white rounded p-2 text-xs border border-slate-200 shadow-2xs">
-                                    <span class="font-semibold text-navy block text-[11px]">Pusat Koordinasi & Kajian</span>
-                                    <span class="text-slate-500 text-[11px]">Aksi bersifat terorganisasi, bukan spontan tanpa struktur.</span>
+                                    <span class="font-semibold text-navy block text-[11px]">Pusat Koordinasi &
+                                        Kajian</span>
+                                    <span class="text-slate-500 text-[11px]">Aksi bersifat terorganisasi, bukan spontan
+                                        tanpa struktur.</span>
                                 </div>
                                 <div class="bg-white rounded p-2 text-xs border border-slate-200 shadow-2xs">
-                                    <span class="font-semibold text-navy block text-[11px]">Alasan Non-Konvensional</span>
-                                    <span class="text-slate-500 text-[11px]">Jalur formal dinilai lambat & hanya menampung aspirasi.</span>
+                                    <span class="font-semibold text-navy block text-[11px]">Alasan
+                                        Non-Konvensional</span>
+                                    <span class="text-slate-500 text-[11px]">Jalur formal dinilai lambat & hanya
+                                        menampung aspirasi.</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-3.5 pt-2.5 border-t border-slateBlue/20 flex items-center justify-between text-[11px] font-semibold text-slateBlue">
+                        <div
+                            class="mt-3.5 pt-2.5 border-t border-slateBlue/20 flex items-center justify-between text-[11px] font-semibold text-slateBlue">
                             <span>Teori: Civic Voluntarism</span>
                             <span class="underline group-hover:text-navy">Bedah Teori →</span>
                         </div>
                     </div>
 
                     <!-- Kolom 2: Repertoar / Bentuk Partisipasi -->
-                    <div onclick="showTeoriDetail('bentuk')" id="card-teori-bentuk" class="ekosistem-card cursor-pointer group bg-taupe-soft hover:bg-taupe-light/40 border-taupe/40 hover:border-taupe-dark p-4 flex flex-col justify-between">
+                    <div onclick="showTeoriDetail('bentuk')" id="card-teori-bentuk"
+                        class="ekosistem-card cursor-pointer group bg-taupe-soft hover:bg-taupe-light/40 border-taupe/40 hover:border-taupe-dark p-4 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-2.5">
-                                <span class="px-2 py-0.5 rounded bg-taupe-dark text-white text-[11px] font-bold">2. BENTUK AKSI</span>
+                                <span class="px-2 py-0.5 rounded bg-taupe-dark text-white text-[11px] font-bold">2.
+                                    BENTUK AKSI</span>
                                 <i class="fa-solid fa-circle-info text-taupe-dark group-hover:text-navy transition"></i>
                             </div>
-                            <h3 class="font-display font-bold text-navy text-sm sm:text-base mb-1.5">Spektrum Partisipasi Non-Konvensional</h3>
+                            <h3 class="font-display font-bold text-navy text-sm sm:text-base mb-1.5">Spektrum
+                                Partisipasi Non-Konvensional</h3>
                             <p id="card-bentuk-desc" class="text-xs text-slate-600 mb-2 leading-relaxed">
-                                Mahasiswa memadukan jalur intelektual, digital, hingga aksi lapangan tanpa menolak jalur formal sepenuhnya:
+                                Mahasiswa memadukan jalur intelektual, digital, hingga aksi lapangan tanpa menolak jalur
+                                formal sepenuhnya:
                             </p>
                             <div class="text-[10px] text-taupe-dark font-bold mb-1.5 flex items-center gap-1">
                                 <i class="fa-solid fa-hand-pointer"></i> Klik salah satu bentuk aksi di bawah:
                             </div>
                             <ul class="space-y-1.5 text-xs" id="list-bentuk-aksi">
-                                <li onclick="event.stopPropagation(); showBentukAksiDetail('kajian')" title="Klik untuk telaah bentuk aksi ini" class="list-aksi-item bg-white/90 px-2.5 py-1.5 border border-taupe/30 flex items-center justify-between">
+                                <li onclick="event.stopPropagation(); showBentukAksiDetail('kajian')"
+                                    title="Klik untuk telaah bentuk aksi ini"
+                                    class="list-aksi-item bg-white/90 px-2.5 py-1.5 border border-taupe/30 flex items-center justify-between">
                                     <div class="flex items-center gap-2">
-                                        <i class="fa-solid fa-book-open text-navy w-3.5"></i> <span><strong>Kajian Akademis</strong> & Diskusi</span>
+                                        <i class="fa-solid fa-book-open text-navy w-3.5"></i> <span><strong>Kajian
+                                                Akademis</strong> & Diskusi</span>
                                     </div>
                                     <i class="fa-solid fa-chevron-right text-[9px] text-taupe-dark"></i>
                                 </li>
-                                <li onclick="event.stopPropagation(); showBentukAksiDetail('policy_brief')" title="Klik untuk telaah bentuk aksi ini" class="list-aksi-item bg-white/90 px-2.5 py-1.5 border border-taupe/30 flex items-center justify-between">
+                                <li onclick="event.stopPropagation(); showBentukAksiDetail('policy_brief')"
+                                    title="Klik untuk telaah bentuk aksi ini"
+                                    class="list-aksi-item bg-white/90 px-2.5 py-1.5 border border-taupe/30 flex items-center justify-between">
                                     <div class="flex items-center gap-2">
-                                        <i class="fa-solid fa-file-lines text-navy w-3.5"></i> <span>Penyusunan <strong>Policy Brief</strong></span>
+                                        <i class="fa-solid fa-file-lines text-navy w-3.5"></i> <span>Penyusunan
+                                            <strong>Policy Brief</strong></span>
                                     </div>
                                     <i class="fa-solid fa-chevron-right text-[9px] text-taupe-dark"></i>
                                 </li>
-                                <li onclick="event.stopPropagation(); showBentukAksiDetail('sikap_petisi')" title="Klik untuk telaah bentuk aksi ini" class="list-aksi-item bg-white/90 px-2.5 py-1.5 border border-taupe/30 flex items-center justify-between">
+                                <li onclick="event.stopPropagation(); showBentukAksiDetail('sikap_petisi')"
+                                    title="Klik untuk telaah bentuk aksi ini"
+                                    class="list-aksi-item bg-white/90 px-2.5 py-1.5 border border-taupe/30 flex items-center justify-between">
                                     <div class="flex items-center gap-2">
-                                        <i class="fa-solid fa-bullhorn text-navy w-3.5"></i> <span><strong>Pernyataan Sikap</strong> & Petisi</span>
+                                        <i class="fa-solid fa-bullhorn text-navy w-3.5"></i> <span><strong>Pernyataan
+                                                Sikap</strong> & Petisi</span>
                                     </div>
                                     <i class="fa-solid fa-chevron-right text-[9px] text-taupe-dark"></i>
                                 </li>
-                                <li onclick="event.stopPropagation(); showBentukAksiDetail('demonstrasi')" title="Klik untuk telaah bentuk aksi ini" class="list-aksi-item bg-white/90 px-2.5 py-1.5 border border-taupe/30 flex items-center justify-between">
+                                <li onclick="event.stopPropagation(); showBentukAksiDetail('demonstrasi')"
+                                    title="Klik untuk telaah bentuk aksi ini"
+                                    class="list-aksi-item bg-white/90 px-2.5 py-1.5 border border-taupe/30 flex items-center justify-between">
                                     <div class="flex items-center gap-2">
-                                        <i class="fa-solid fa-person-walking-arrow-right text-navy w-3.5"></i> <span><strong>Demonstrasi</strong> ke DPRD / Balai Kota</span>
+                                        <i class="fa-solid fa-person-walking-arrow-right text-navy w-3.5"></i>
+                                        <span><strong>Demonstrasi</strong> ke DPRD / Balai Kota</span>
                                     </div>
                                     <i class="fa-solid fa-chevron-right text-[9px] text-taupe-dark"></i>
                                 </li>
-                                <li onclick="event.stopPropagation(); showBentukAksiDetail('propaganda_digital')" title="Klik untuk telaah bentuk aksi ini" class="list-aksi-item bg-white/90 px-2.5 py-1.5 border border-taupe/30 flex items-center justify-between">
+                                <li onclick="event.stopPropagation(); showBentukAksiDetail('propaganda_digital')"
+                                    title="Klik untuk telaah bentuk aksi ini"
+                                    class="list-aksi-item bg-white/90 px-2.5 py-1.5 border border-taupe/30 flex items-center justify-between">
                                     <div class="flex items-center gap-2">
-                                        <i class="fa-brands fa-instagram text-navy w-3.5"></i> <span><strong>Propaganda Media Sosial</strong></span>
+                                        <i class="fa-brands fa-instagram text-navy w-3.5"></i> <span><strong>Propaganda
+                                                Media Sosial</strong></span>
                                     </div>
                                     <i class="fa-solid fa-chevron-right text-[9px] text-taupe-dark"></i>
                                 </li>
                             </ul>
                         </div>
-                        <div class="mt-3.5 pt-2.5 border-t border-taupe/40 flex items-center justify-between text-[11px] font-semibold text-taupe-dark">
+                        <div
+                            class="mt-3.5 pt-2.5 border-t border-taupe/40 flex items-center justify-between text-[11px] font-semibold text-taupe-dark">
                             <span>Teori: Pilihan Rasional (Downs)</span>
                             <span class="underline group-hover:text-navy">Bedah Teori →</span>
                         </div>
                     </div>
 
                     <!-- Kolom 3: Mediasi Digital & Media Massa -->
-                    <div onclick="showTeoriDetail('media')" id="card-teori-media" class="ekosistem-card cursor-pointer group bg-slateBlue-soft/60 hover:bg-slateBlue-soft border-slateBlue/20 hover:border-navy p-4 flex flex-col justify-between">
+                    <div onclick="showTeoriDetail('media')" id="card-teori-media"
+                        class="ekosistem-card cursor-pointer group bg-slateBlue-soft/60 hover:bg-slateBlue-soft border-slateBlue/20 hover:border-navy p-4 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-2.5">
-                                <span class="px-2 py-0.5 rounded bg-slateBlue text-white text-[11px] font-bold">3. RUANG MEDIA</span>
+                                <span class="px-2 py-0.5 rounded bg-slateBlue text-white text-[11px] font-bold">3. RUANG
+                                    MEDIA</span>
                                 <i class="fa-solid fa-circle-info text-slateBlue group-hover:text-navy transition"></i>
                             </div>
-                            <h3 class="font-display font-bold text-navy text-sm sm:text-base mb-1.5">Amplifikasi Digital & Framing Media Massa</h3>
+                            <h3 class="font-display font-bold text-navy text-sm sm:text-base mb-1.5">Amplifikasi Digital
+                                & Framing Media Massa</h3>
                             <div class="space-y-1.5 text-xs">
                                 <div class="bg-white rounded p-2 border border-slate-200">
-                                    <span class="font-bold text-navy block text-[11px] mb-0.5"><i class="fa-brands fa-instagram text-pink-600 mr-1"></i> Media Sosial (Penguat)</span>
-                                    <p id="card-media-desc" class="text-slate-600 text-[11px]">Bukan <em>connective action</em> murni. Jangkauan organik (tanpa buzzer), memicu dialektika komentar warga.</p>
+                                    <span class="font-bold text-navy block text-[11px] mb-0.5"><i
+                                            class="fa-brands fa-instagram text-pink-600 mr-1"></i> Media Sosial
+                                        (Penguat)</span>
+                                    <p id="card-media-desc" class="text-slate-600 text-[11px]">Bukan <em>connective
+                                            action</em> murni. Jangkauan organik (tanpa buzzer), memicu dialektika
+                                        komentar warga.</p>
                                 </div>
                                 <div class="bg-white rounded p-2 border border-slate-200">
-                                    <span class="font-bold text-navy block text-[11px] mb-0.5"><i class="fa-solid fa-newspaper text-slateBlue mr-1"></i> Dualisme Framing Berita</span>
-                                    <p class="text-slate-600 text-[11px]">8 berita aksi lokal membingkai gerakan sebagai <strong>tuntutan akuntabilitas</strong> di satu sisi, atau <strong>gangguan ketertiban</strong> di sisi lain.</p>
+                                    <span class="font-bold text-navy block text-[11px] mb-0.5"><i
+                                            class="fa-solid fa-newspaper text-slateBlue mr-1"></i> Dualisme Framing
+                                        Berita</span>
+                                    <p class="text-slate-600 text-[11px]">8 berita aksi lokal membingkai gerakan sebagai
+                                        <strong>tuntutan akuntabilitas</strong> di satu sisi, atau <strong>gangguan
+                                            ketertiban</strong> di sisi lain.
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-3.5 pt-2.5 border-t border-slateBlue/20 flex items-center justify-between text-[11px] font-semibold text-slateBlue">
+                        <div
+                            class="mt-3.5 pt-2.5 border-t border-slateBlue/20 flex items-center justify-between text-[11px] font-semibold text-slateBlue">
                             <span>Teori: Framing & Habermas</span>
                             <span class="underline group-hover:text-navy">Bedah Teori →</span>
                         </div>
                     </div>
 
                     <!-- Kolom 4: Budaya Politik & Stabilitas Lokal -->
-                    <div onclick="showTeoriDetail('budaya')" id="card-teori-budaya" class="ekosistem-card cursor-pointer group bg-navy text-white border-navy hover:border-taupe p-4 flex flex-col justify-between shadow-sm">
+                    <div onclick="showTeoriDetail('budaya')" id="card-teori-budaya"
+                        class="ekosistem-card cursor-pointer group bg-navy text-white border-navy hover:border-taupe p-4 flex flex-col justify-between shadow-sm">
                         <div>
                             <div class="flex items-center justify-between mb-2.5">
-                                <span class="px-2 py-0.5 rounded bg-taupe text-navy-dark text-[11px] font-bold">4. DAMPAK & STABILITAS</span>
+                                <span class="px-2 py-0.5 rounded bg-taupe text-navy-dark text-[11px] font-bold">4.
+                                    DAMPAK & STABILITAS</span>
                                 <i class="fa-solid fa-circle-info text-taupe-light"></i>
                             </div>
-                            <h3 class="font-display font-bold text-white text-sm sm:text-base mb-1.5">Budaya Sipil & Stabilitas Politik Tasikmalaya</h3>
+                            <h3 class="font-display font-bold text-white text-sm sm:text-base mb-1.5">Budaya Sipil &
+                                Stabilitas Politik Tasikmalaya</h3>
                             <p id="card-budaya-desc" class="text-xs text-slate-300 mb-3 leading-relaxed">
-                                Orientasi mahasiswa mengarah pada <strong>Budaya Sipil (Civic Culture)</strong>: kritis namun tetap menjaga dialog konstitusional.
+                                Orientasi mahasiswa mengarah pada <strong>Budaya Sipil (Civic Culture)</strong>: kritis
+                                namun tetap menjaga dialog konstitusional.
                             </p>
                             <div class="space-y-1.5 text-xs">
                                 <div class="bg-navy-dark/90 rounded p-2 border border-emerald-500/40">
-                                    <span class="font-semibold text-emerald-300 block text-[11px]">✓ Respons Terbuka & Ditindaklanjuti</span>
-                                    <span class="text-slate-300 text-[11px]">Memperkuat kepercayaan publik & stabilitas politik lokal.</span>
+                                    <span class="font-semibold text-emerald-300 block text-[11px]">✓ Respons Terbuka &
+                                        Ditindaklanjuti</span>
+                                    <span class="text-slate-300 text-[11px]">Memperkuat kepercayaan publik & stabilitas
+                                        politik lokal.</span>
                                 </div>
                                 <div class="bg-navy-dark/90 rounded p-2 border border-amber-500/40">
-                                    <span class="font-semibold text-amber-300 block text-[11px]">! Aspirasi Diabaikan / Mandek</span>
-                                    <span class="text-slate-300 text-[11px]">Memicu kekecewaan & eskalasi aksi jalanan berulang.</span>
+                                    <span class="font-semibold text-amber-300 block text-[11px]">! Aspirasi Diabaikan /
+                                        Mandek</span>
+                                    <span class="text-slate-300 text-[11px]">Memicu kekecewaan & eskalasi aksi jalanan
+                                        berulang.</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-3.5 pt-2.5 border-t border-slateBlue/50 flex items-center justify-between text-[11px] font-semibold text-taupe-light">
+                        <div
+                            class="mt-3.5 pt-2.5 border-t border-slateBlue/50 flex items-center justify-between text-[11px] font-semibold text-taupe-light">
                             <span>Teori: Budaya Politik (Almond)</span>
                             <span class="underline">Bedah Teori →</span>
                         </div>
@@ -307,23 +395,31 @@
                 <div id="panel-analisis-teori" class="mt-5 rounded bg-slate-50 border border-slate-200 p-4 sm:p-5">
                     <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
                         <div class="space-y-2 max-w-4xl">
-                            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-navy/10 text-navy text-xs font-bold" id="detail-teori-badge">
+                            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-navy/10 text-navy text-xs font-bold"
+                                id="detail-teori-badge">
                                 <i class="fa-solid fa-graduation-cap"></i> Bedah Landasan Teori & Temuan Empiris
                             </div>
                             <h4 class="font-display text-base sm:text-lg font-bold text-navy" id="detail-teori-judul">
                                 Peran Sentral Organisasi Mahasiswa sebagai Pusat Koordinasi & Rekrutmen
                             </h4>
                             <p class="text-xs sm:text-sm text-slate-700 leading-relaxed" id="detail-teori-deskripsi">
-                                Berdasarkan teori Civic Voluntarism (Sidney Verba dkk.), partisipasi aktif membutuhkan sumber daya (pengetahuan, waktu, jaringan) dan mobilisasi. Wawancara terhadap 6 informan dari 4 organisasi/komunitas FISIP Unsil menunjukkan bahwa organisasi mahasiswa menjadi pusat koordinasi, perumusan kajian, dan rekrutmen massa, bukan sekadar kerumunan tanpa struktur.
+                                Berdasarkan teori Civic Voluntarism (Sidney Verba dkk.), partisipasi aktif membutuhkan
+                                sumber daya (pengetahuan, waktu, jaringan) dan mobilisasi. Wawancara terhadap 6 informan
+                                dari 4 organisasi/komunitas FISIP Unsil menunjukkan bahwa organisasi mahasiswa menjadi
+                                pusat koordinasi, perumusan kajian, dan rekrutmen massa, bukan sekadar kerumunan tanpa
+                                struktur.
                             </p>
                         </div>
-                        <div id="detail-isu-box" class="bg-white rounded p-3.5 border border-taupe/50 md:w-80 shrink-0 shadow-2xs">
+                        <div id="detail-isu-box"
+                            class="bg-white rounded p-3.5 border border-taupe/50 md:w-80 shrink-0 shadow-2xs">
                             <div class="text-[11px] font-bold uppercase text-taupe-dark mb-1 flex items-center gap-1.5">
                                 <i class="fa-solid fa-bullseye"></i> Sorotan Klaster Isu Aktif
                             </div>
-                            <div class="font-bold text-navy text-xs sm:text-sm" id="detail-isu-nama">Semua Klaster Isu (4 Bidang)</div>
+                            <div class="font-bold text-navy text-xs sm:text-sm" id="detail-isu-nama">Semua Klaster Isu
+                                (4 Bidang)</div>
                             <p class="text-[11px] text-slate-600 mt-1 leading-relaxed" id="detail-isu-ket">
-                                Mencakup isu Tata Kelola Pemerintahan daerah, kelestarian Lingkungan, kebijakan Pendidikan, dan kualitas Pelayanan Publik di Kota Tasikmalaya.
+                                Mencakup isu Tata Kelola Pemerintahan daerah, kelestarian Lingkungan, kebijakan
+                                Pendidikan, dan kualitas Pelayanan Publik di Kota Tasikmalaya.
                             </p>
                         </div>
                     </div>
@@ -338,10 +434,13 @@
             <div class="bg-white rounded-md p-4 sm:p-5 shadow-sm border border-slate-200">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
                     <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-slateBlue">Pemetaan Spasial & Ruang Publik</span>
-                        <h2 class="font-display text-lg sm:text-xl font-bold text-navy mt-0.5">Peta Konsentrasi Aksi Kolektif Mahasiswa di Kota Tasikmalaya</h2>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slateBlue">Pemetaan Spasial & Ruang
+                            Publik</span>
+                        <h2 class="font-display text-lg sm:text-xl font-bold text-navy mt-0.5">Peta Konsentrasi Aksi
+                            Kolektif Mahasiswa di Kota Tasikmalaya</h2>
                         <p class="text-xs text-slate-600 mt-0.5">
-                            Berdasarkan pemetaan <strong>8 berita aksi mahasiswa</strong> dan <strong>observasi digital Instagram</strong>.
+                            Berdasarkan pemetaan <strong>8 berita aksi mahasiswa</strong> dan <strong>observasi digital
+                                Instagram</strong>.
                         </p>
                     </div>
 
@@ -353,108 +452,191 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-                    
+
                     <!-- Kolom Kiri: Peta Skematis SVG Interaktif Kota Tasikmalaya -->
-                    <div class="lg:col-span-7 bg-slateBlue-soft/50 rounded border border-slate-200 p-3.5 map-canvas-wrapper">
+                    <div
+                        class="lg:col-span-7 bg-[#F4F4EE] rounded border border-slate-200 p-3.5 map-canvas-wrapper shadow-xs">
                         <div class="flex items-center justify-between mb-2.5 px-1">
                             <span class="text-xs font-bold text-navy flex items-center gap-1.5">
-                                <i class="fa-solid fa-compass text-slateBlue"></i> Peta Skematis Simpul Gerakan Kota Tasikmalaya
+                                <i class="fa-solid fa-compass text-secondary"></i> Peta Skematis Simpul Gerakan Kota
+                                Tasikmalaya
                             </span>
-                            <span class="text-[11px] text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
-                                <i class="fa-solid fa-hand-pointer mr-1"></i> Klik Pin / Tombol
+                            <span
+                                class="text-[11px] text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200 shadow-2xs">
+                                <i class="fa-solid fa-hand-pointer mr-1 text-secondary"></i> Klik Pin / Tombol
                             </span>
                         </div>
 
                         <!-- SVG Peta Skematis Modern - Kotak Presisi -->
-                        <svg viewBox="0 0 600 420" class="w-full h-auto rounded bg-[#EEF3F8] border border-slate-300/70 shadow-inner" role="img" aria-label="Peta Skematis Simpul Aksi Mahasiswa di Tasikmalaya">
-                            <!-- Grid Latar Peta -->
+                        <svg viewBox="0 0 600 420"
+                            class="w-full h-auto rounded bg-[#FAF9F5] border border-slate-300/80 shadow-inner"
+                            role="img" aria-label="Peta Skematis Simpul Aksi Mahasiswa di Tasikmalaya">
+                            <!-- Grid Latar Peta & Simbol Ikon Universal -->
                             <defs>
                                 <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-                                    <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#CBD5E1" stroke-width="0.6" stroke-dasharray="2,2"/>
+                                    <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#E2E2D8" stroke-width="0.6"
+                                        stroke-dasharray="2,2" />
                                 </pattern>
+
+                                <!-- Icon 1: Kampus FISIP Unsil (Topi Toga / Mortarboard Wisuda Kampus) -->
+                                <g id="icon-kampus">
+                                    <path
+                                        d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18C5 19.94 8.13 22 12 22C15.87 22 19 19.94 19 17.18V13.18L12 17L5 13.18Z"
+                                        fill="#FFFFFF" />
+                                </g>
+
+                                <!-- Icon 2: Gedung DPRD Kota Tasikmalaya (Kubah & Pilar Parlemen Legislatif) -->
+                                <g id="icon-dprd">
+                                    <path
+                                        d="M12 2L2 7H22L12 2ZM4 9V17H7V9H4ZM10 9V17H14V9H10ZM17 9V17H20V9H17ZM2 19V22H22V19H2Z"
+                                        fill="#FFFFFF" />
+                                </g>
+
+                                <!-- Icon 3: Balai Kota Tasikmalaya (Gedung Eksekutif / City Hall Pemerintah Daerah) -->
+                                <g id="icon-balkot">
+                                    <path
+                                        d="M15 11V5L12 2L9 5V11H3V21H21V11H15ZM11 6.83L12 5.83L13 6.83V11H11V6.83ZM7 19H5V17H7V19ZM7 15H5V13H7V15ZM13 19H11V15H13V19ZM19 19H17V17H19V19ZM19 15H17V13H19V15Z"
+                                        fill="#FFFFFF" />
+                                </g>
+
+                                <!-- Icon 4: Ruang Digital / Instagram (Media Sosial & Internet) -->
+                                <g id="icon-digital">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                                        fill="#FFFFFF" />
+                                </g>
                             </defs>
                             <rect width="600" height="420" fill="url(#grid)" />
 
                             <!-- Siluet Wilayah Administratif Kota Tasikmalaya (Skematis Artistik) -->
-                            <path d="M130,65 Q230,35 330,60 T480,120 Q525,200 490,295 T360,375 Q240,390 155,340 T85,210 Q90,115 130,65 Z"
-                                  fill="#FFFFFF" stroke="#94A3B8" stroke-width="2" />
-                            <path d="M145,80 Q235,52 325,75 T465,130 Q505,200 475,285 T355,360 Q245,372 168,326 T102,208 Q108,125 145,80 Z"
-                                  fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
+                            <path
+                                d="M130,65 Q230,35 330,60 T480,120 Q525,200 490,295 T360,375 Q240,390 155,340 T85,210 Q90,115 130,65 Z"
+                                fill="#FFFFFF" stroke="#94A3B8" stroke-width="2" />
+                            <path
+                                d="M145,80 Q235,52 325,75 T465,130 Q505,200 475,285 T355,360 Q245,372 168,326 T102,208 Q108,125 145,80 Z"
+                                fill="#FAF9F6" stroke="#CBD5E1" stroke-width="1" />
 
                             <!-- Jalur Utama Penghubung (Arteri Gerakan) -->
-                            <path d="M 415 280 Q 340 245 270 190" fill="none" stroke="#3B5B78" stroke-width="3" stroke-dasharray="6,4" />
-                            <path d="M 270 190 Q 235 160 205 130" fill="none" stroke="#1B365D" stroke-width="3" />
+                            <path d="M 415 280 Q 340 245 270 190" fill="none" stroke="#2A6B5C" stroke-width="3"
+                                stroke-dasharray="6,4" />
+                            <path d="M 270 190 Q 235 160 205 130" fill="none" stroke="#2A6B5C" stroke-width="3" />
 
                             <!-- Jalur ke Ruang Digital (Cloud/Orbit) -->
-                            <path d="M 415 280 Q 460 190 445 105" fill="none" stroke="#9E8574" stroke-width="2.5" stroke-dasharray="4,4" />
-                            <path d="M 205 130 Q 320 95 445 105" fill="none" stroke="#9E8574" stroke-width="2" stroke-dasharray="4,4" />
+                            <path d="M 415 280 Q 460 190 445 105" fill="none" stroke="#2A6B5C" stroke-width="2.5"
+                                stroke-dasharray="4,4" />
+                            <path d="M 205 130 Q 320 95 445 105" fill="none" stroke="#2A6B5C" stroke-width="2"
+                                stroke-dasharray="4,4" />
 
                             <!-- Label Wilayah Skematis -->
-                            <text x="150" y="255" font-size="10" fill="#94A3B8" font-weight="600" letter-spacing="1">KAWASAN PUSAT KOTA</text>
-                            <text x="355" y="335" font-size="10" fill="#94A3B8" font-weight="600" letter-spacing="1">KAWASAN PENDIDIKAN</text>
+                            <text x="150" y="255" font-size="10" fill="#94A3B8" font-weight="600"
+                                letter-spacing="1">KAWASAN PUSAT KOTA</text>
+                            <text x="355" y="335" font-size="10" fill="#94A3B8" font-weight="600"
+                                letter-spacing="1">KAWASAN PENDIDIKAN</text>
 
                             <!-- PIN 1: KAMPUS FISIP UNSIL -->
-                            <g class="map-pin" onclick="selectMapLocation('unsil')" id="pin-unsil" tabindex="0" role="button" aria-label="Kampus FISIP Universitas Siliwangi">
-                                <circle cx="415" cy="280" r="20" fill="#3B5B78" opacity="0.2" class="pulse-ring" />
-                                <circle cx="415" cy="280" r="15" fill="#3B5B78" stroke="#FFFFFF" stroke-width="2.5" />
-                                <text x="415" y="284" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="bold">1</text>
-                                <rect x="335" y="302" width="160" height="22" rx="3" fill="#1B365D" />
-                                <text x="415" y="316" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="600">Kampus FISIP Unsil</text>
+                            <g class="map-pin" onclick="selectMapLocation('unsil')" id="pin-unsil" tabindex="0"
+                                role="button" aria-label="Kampus FISIP Universitas Siliwangi">
+                                <circle cx="415" cy="280" r="23" fill="#2A6B5C" opacity="0.22" class="pulse-ring" />
+                                <circle cx="415" cy="280" r="18" fill="#2A6B5C" stroke="#FFFFFF" stroke-width="2.5" />
+                                <g transform="translate(404, 269) scale(0.92)">
+                                    <use href="#icon-kampus" />
+                                </g>
+                                <rect x="330" y="306" width="170" height="24" rx="4" fill="#2A6B5C" stroke="#2A6B5C"
+                                    stroke-width="1.2" />
+                                <text x="415" y="322" text-anchor="middle" fill="#FFFFFF" font-size="10.5"
+                                    font-weight="600">Kampus FISIP Unsil</text>
                             </g>
 
                             <!-- PIN 2: GEDUNG DPRD KOTA TASIKMALAYA -->
-                            <g class="map-pin pin-active" onclick="selectMapLocation('dprd')" id="pin-dprd" tabindex="0" role="button" aria-label="Gedung DPRD Kota Tasikmalaya">
-                                <circle cx="270" cy="190" r="20" fill="#1B365D" opacity="0.2" class="pulse-ring" />
-                                <circle cx="270" cy="190" r="15" fill="#1B365D" stroke="#BFA898" stroke-width="2.5" />
-                                <text x="270" y="194" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="bold">2</text>
-                                <rect x="185" y="212" width="170" height="22" rx="3" fill="#1B365D" />
-                                <text x="270" y="226" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="600">Gedung DPRD Kota Tasik</text>
+                            <g class="map-pin pin-active" onclick="selectMapLocation('dprd')" id="pin-dprd" tabindex="0"
+                                role="button" aria-label="Gedung DPRD Kota Tasikmalaya">
+                                <circle cx="270" cy="190" r="23" fill="#2A6B5C" opacity="0.22" class="pulse-ring" />
+                                <circle cx="270" cy="190" r="18" fill="#2A6B5C" stroke="#2A6B5C" stroke-width="3.5" />
+                                <g transform="translate(259, 179) scale(0.92)">
+                                    <use href="#icon-dprd" />
+                                </g>
+                                <rect x="180" y="216" width="180" height="24" rx="4" fill="#2A6B5C" stroke="#2A6B5C"
+                                    stroke-width="1.2" />
+                                <text x="270" y="232" text-anchor="middle" fill="#FFFFFF" font-size="10.5"
+                                    font-weight="600">Gedung DPRD Kota Tasik</text>
                             </g>
 
                             <!-- PIN 3: BALAI KOTA TASIKMALAYA -->
-                            <g class="map-pin" onclick="selectMapLocation('balkot')" id="pin-balkot" tabindex="0" role="button" aria-label="Balai Kota Tasikmalaya">
-                                <circle cx="205" cy="130" r="20" fill="#1B365D" opacity="0.2" class="pulse-ring" />
-                                <circle cx="205" cy="130" r="15" fill="#1B365D" stroke="#FFFFFF" stroke-width="2.5" />
-                                <text x="205" y="134" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="bold">3</text>
-                                <rect x="125" y="92" width="160" height="22" rx="3" fill="#1B365D" />
-                                <text x="205" y="106" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="600">Balai Kota Tasikmalaya</text>
+                            <g class="map-pin" onclick="selectMapLocation('balkot')" id="pin-balkot" tabindex="0"
+                                role="button" aria-label="Balai Kota Tasikmalaya">
+                                <circle cx="205" cy="130" r="23" fill="#2A6B5C" opacity="0.22" class="pulse-ring" />
+                                <circle cx="205" cy="130" r="18" fill="#2A6B5C" stroke="#FFFFFF" stroke-width="2.5" />
+                                <g transform="translate(194, 119) scale(0.92)">
+                                    <use href="#icon-balkot" />
+                                </g>
+                                <rect x="120" y="88" width="170" height="24" rx="4" fill="#2A6B5C" stroke="#2A6B5C"
+                                    stroke-width="1.2" />
+                                <text x="205" y="104" text-anchor="middle" fill="#FFFFFF" font-size="10.5"
+                                    font-weight="600">Balai Kota Tasikmalaya</text>
                             </g>
 
                             <!-- PIN 4: RUANG PUBLIK DIGITAL / INSTAGRAM -->
-                            <g class="map-pin" onclick="selectMapLocation('digital')" id="pin-digital" tabindex="0" role="button" aria-label="Ruang Digital Instagram">
-                                <circle cx="445" cy="105" r="20" fill="#9E8574" opacity="0.25" class="pulse-ring" />
-                                <circle cx="445" cy="105" r="15" fill="#9E8574" stroke="#FFFFFF" stroke-width="2.5" />
-                                <text x="445" y="109" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="bold">4</text>
-                                <rect x="360" y="67" width="170" height="22" rx="3" fill="#9E8574" />
-                                <text x="445" y="81" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="600">Ruang Digital (Instagram)</text>
+                            <g class="map-pin" onclick="selectMapLocation('digital')" id="pin-digital" tabindex="0"
+                                role="button" aria-label="Ruang Digital Instagram">
+                                <circle cx="445" cy="105" r="23" fill="#2A6B5C" opacity="0.25" class="pulse-ring" />
+                                <circle cx="445" cy="105" r="18" fill="#2A6B5C" stroke="#FFFFFF" stroke-width="2.5" />
+                                <g transform="translate(434, 94) scale(0.92)">
+                                    <use href="#icon-digital" />
+                                </g>
+                                <rect x="355" y="66" width="180" height="24" rx="4" fill="#2A6B5C" stroke="#FFFFFF"
+                                    stroke-width="1.2" />
+                                <text x="445" y="82" text-anchor="middle" fill="#FFFFFF" font-size="10.5"
+                                    font-weight="600">Ruang Digital (Instagram)</text>
                             </g>
                         </svg>
 
                         <!-- Tombol Pintas Lokasi di Bawah Peta -->
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5 mt-2.5">
-                            <button onclick="selectMapLocation('unsil')" class="loc-btn px-2 py-1.5 text-xs font-semibold bg-white border border-slate-300 text-navy text-center">1. Kampus Unsil</button>
-                            <button onclick="selectMapLocation('dprd')" class="loc-btn active px-2 py-1.5 text-xs font-semibold bg-navy text-white text-center">2. Gedung DPRD</button>
-                            <button onclick="selectMapLocation('balkot')" class="loc-btn px-2 py-1.5 text-xs font-semibold bg-white border border-slate-300 text-navy text-center">3. Balai Kota</button>
-                            <button onclick="selectMapLocation('digital')" class="loc-btn px-2 py-1.5 text-xs font-semibold bg-white border border-slate-300 text-navy text-center">4. Ruang Digital</button>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-3">
+                            <button onclick="selectMapLocation('unsil')"
+                                class="loc-btn px-2.5 py-2 text-xs font-semibold bg-white border border-slate-300 text-navy hover:border-secondary transition flex items-center justify-center gap-1.5 shadow-sm rounded">
+                                <i class="fa-solid fa-graduation-cap text-secondary"></i> <span>Kampus Unsil</span>
+                            </button>
+                            <button onclick="selectMapLocation('dprd')"
+                                class="loc-btn active px-2.5 py-2 text-xs font-semibold bg-navy text-white transition flex items-center justify-center gap-1.5 shadow-sm rounded">
+                                <i class="fa-solid fa-landmark-dome text-secondary-light"></i> <span>Gedung DPRD</span>
+                            </button>
+                            <button onclick="selectMapLocation('balkot')"
+                                class="loc-btn px-2.5 py-2 text-xs font-semibold bg-white border border-slate-300 text-navy hover:border-secondary transition flex items-center justify-center gap-1.5 shadow-sm rounded">
+                                <i class="fa-solid fa-city text-secondary"></i> <span>Balai Kota</span>
+                            </button>
+                            <button onclick="selectMapLocation('digital')"
+                                class="loc-btn px-2.5 py-2 text-xs font-semibold bg-white border border-slate-300 text-navy hover:border-secondary transition flex items-center justify-center gap-1.5 shadow-sm rounded">
+                                <i class="fa-brands fa-instagram text-secondary"></i> <span>Ruang Digital</span>
+                            </button>
                         </div>
                     </div>
 
                     <!-- Kolom Kanan: Kartu Detail Studi Kasus Lokasi (Bebas Tumpang Tindih) -->
-                    <div class="lg:col-span-5 bg-white rounded border-2 border-navy/15 p-4 sm:p-5 shadow-sm space-y-3.5" id="map-detail-card">
-                        
+                    <div class="lg:col-span-5 bg-white rounded border-2 border-navy/15 p-4 sm:p-5 shadow-sm space-y-3.5"
+                        id="map-detail-card">
+
                         <!-- Header Detail Bebas Tabrakan dengan Flexbox Responsif -->
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-                            <span class="inline-block px-2.5 py-1 rounded bg-navy text-white text-xs font-bold leading-normal shrink-0" id="loc-badge">
-                                Simpul 02 • Pusat Legislatif Daerah
+                        <div
+                            class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                            <span
+                                class="inline-block px-2.5 py-1 rounded bg-navy text-white text-xs font-bold leading-normal shrink-0"
+                                id="loc-badge">
+                                <i class="fa-solid fa-landmark-dome mr-1.5 text-secondary-light"></i> Simpul 02 • Pusat
+                                Legislatif Daerah
                             </span>
-                            <span class="text-xs font-semibold text-taupe-dark text-left sm:text-right" id="loc-sumber">
+                            <span class="text-xs font-semibold text-secondary text-left sm:text-right" id="loc-sumber">
                                 Sumber: Analisis Berita & Wawancara
                             </span>
                         </div>
 
                         <div>
-                            <h3 class="font-display text-lg sm:text-xl font-bold text-navy" id="loc-title">Gedung DPRD Kota Tasikmalaya</h3>
-                            <p class="text-xs text-slate-500 mt-0.5" id="loc-subtitle">Titik Utama Demonstrasi, Audiensi, & Penyampaian Tuntutan</p>
+                            <h3 class="font-display text-lg sm:text-xl font-bold text-navy flex items-center"
+                                id="loc-title">
+                                <i class="fa-solid fa-landmark-dome text-secondary mr-2"></i> Gedung DPRD Kota
+                                Tasikmalaya
+                            </h3>
+                            <p class="text-xs text-slate-500 mt-0.5" id="loc-subtitle">Titik Utama Demonstrasi,
+                                Audiensi, & Penyampaian Tuntutan</p>
                         </div>
 
                         <div class="space-y-2.5 text-xs">
@@ -463,16 +645,21 @@
                                     <i class="fa-solid fa-bullhorn text-slateBlue"></i> Bentuk Aksi & Isu Utama
                                 </div>
                                 <p class="text-slate-700 leading-relaxed text-[11px]" id="loc-aksi">
-                                    Demonstrasi lapangan dan audiensi terbuka oleh aliansi organisasi mahasiswa (termasuk PMII dan elemen FISIP Unsil) menyoroti tata kelola pemerintahan daerah, transparansi anggaran, serta kualitas pelayanan publik.
+                                    Demonstrasi lapangan dan audiensi terbuka oleh aliansi organisasi mahasiswa
+                                    (termasuk PMII dan elemen FISIP Unsil) menyoroti tata kelola pemerintahan daerah,
+                                    transparansi anggaran, serta kualitas pelayanan publik.
                                 </p>
                             </div>
 
                             <div class="bg-taupe-soft rounded p-3 border border-taupe/40">
-                                <div class="text-[11px] font-bold text-taupe-dark uppercase mb-1 flex items-center gap-1.5">
+                                <div
+                                    class="text-[11px] font-bold text-taupe-dark uppercase mb-1 flex items-center gap-1.5">
                                     <i class="fa-solid fa-newspaper"></i> Pembingkaian Media Massa (Framing)
                                 </div>
                                 <p class="text-slate-700 leading-relaxed text-[11px]" id="loc-framing">
-                                    Media lokal menampilkan dua sudut pandang: membingkai aksi mahasiswa sebagai <strong>kontrol sosial & tuntutan akuntabilitas</strong> wakil rakyat, namun pada berita lain menyoroti <strong>kemacetan lalu lintas dan ketertiban umum</strong>.
+                                    Media lokal menampilkan dua sudut pandang: membingkai aksi mahasiswa sebagai
+                                    <strong>kontrol sosial & tuntutan akuntabilitas</strong> wakil rakyat, namun pada
+                                    berita lain menyoroti <strong>kemacetan lalu lintas dan ketertiban umum</strong>.
                                 </p>
                             </div>
 
@@ -481,7 +668,9 @@
                                     <i class="fa-solid fa-scale-balanced"></i> Respons Kebijakan & Dampak Stabilitas
                                 </div>
                                 <p class="text-slate-700 leading-relaxed text-[11px]" id="loc-respons">
-                                    Aspirasi sering kali baru sebatas ditampung dalam audiensi. Tanpa matriks tindak lanjut yang jelas di Bapemperda, mahasiswa menilai jalur formal berjalan lambat sehingga memicu aksi lanjutan.
+                                    Aspirasi sering kali baru sebatas ditampung dalam audiensi. Tanpa matriks tindak
+                                    lanjut yang jelas di Bapemperda, mahasiswa menilai jalur formal berjalan lambat
+                                    sehingga memicu aksi lanjutan.
                                 </p>
                             </div>
                         </div>
@@ -497,9 +686,11 @@
 
             <!-- Statistik Ringkas Matriks (Berfungsi Sebagai Quick Filter) - Kotak Halus -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
-                <div id="card-stat-total" onclick="quickFilterStatus('semua')" title="Klik untuk memfilter semua aspirasi"
+                <div id="card-stat-total" onclick="quickFilterStatus('semua')"
+                    title="Klik untuk memfilter semua aspirasi"
                     class="stat-card stat-active bg-white rounded p-3.5 border border-slate-200 shadow-2xs flex items-center gap-3.5">
-                    <div class="w-10 h-10 rounded bg-navy/10 text-navy flex items-center justify-center text-lg font-bold shrink-0">
+                    <div
+                        class="w-10 h-10 rounded bg-navy/10 text-navy flex items-center justify-center text-lg font-bold shrink-0">
                         <i class="fa-solid fa-folder-open"></i>
                     </div>
                     <div>
@@ -508,20 +699,25 @@
                     </div>
                 </div>
 
-                <div id="card-stat-bapemperda" onclick="quickFilterStatus('Dibahas di Bapemperda')" title="Klik untuk memfilter yang dibahas Bapemperda"
+                <div id="card-stat-bapemperda" onclick="quickFilterStatus('Dibahas di Bapemperda')"
+                    title="Klik untuk memfilter yang dibahas Bapemperda"
                     class="stat-card bg-white rounded p-3.5 border border-slate-200 shadow-2xs flex items-center gap-3.5">
-                    <div class="w-10 h-10 rounded bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg font-bold shrink-0">
+                    <div
+                        class="w-10 h-10 rounded bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg font-bold shrink-0">
                         <i class="fa-solid fa-gavel"></i>
                     </div>
                     <div>
                         <div class="text-xs text-slate-500 font-medium">Dibahas Bapemperda</div>
-                        <div class="text-xl sm:text-2xl font-display font-bold text-emerald-700" id="stat-bapemperda">2</div>
+                        <div class="text-xl sm:text-2xl font-display font-bold text-emerald-700" id="stat-bapemperda">2
+                        </div>
                     </div>
                 </div>
 
-                <div id="card-stat-hearing" onclick="quickFilterStatus('Dijadwalkan Public Hearing')" title="Klik untuk memfilter jadwal hearing"
+                <div id="card-stat-hearing" onclick="quickFilterStatus('Dijadwalkan Public Hearing')"
+                    title="Klik untuk memfilter jadwal hearing"
                     class="stat-card bg-white rounded p-3.5 border border-slate-200 shadow-2xs flex items-center gap-3.5">
-                    <div class="w-10 h-10 rounded bg-blue-100 text-blue-700 flex items-center justify-center text-lg font-bold shrink-0">
+                    <div
+                        class="w-10 h-10 rounded bg-blue-100 text-blue-700 flex items-center justify-center text-lg font-bold shrink-0">
                         <i class="fa-solid fa-comments"></i>
                     </div>
                     <div>
@@ -530,9 +726,11 @@
                     </div>
                 </div>
 
-                <div id="card-stat-proses" onclick="quickFilterStatus('proses')" title="Klik untuk memfilter yang dalam proses telaah"
+                <div id="card-stat-proses" onclick="quickFilterStatus('proses')"
+                    title="Klik untuk memfilter yang dalam proses telaah"
                     class="stat-card bg-white rounded p-3.5 border border-slate-200 shadow-2xs flex items-center gap-3.5">
-                    <div class="w-10 h-10 rounded bg-amber-100 text-amber-700 flex items-center justify-center text-lg font-bold shrink-0">
+                    <div
+                        class="w-10 h-10 rounded bg-amber-100 text-amber-700 flex items-center justify-center text-lg font-bold shrink-0">
                         <i class="fa-solid fa-clock-rotate-left"></i>
                     </div>
                     <div>
@@ -547,11 +745,15 @@
 
                 <!-- Kolom Kiri (8 Kolom): Tabel Matriks Tindak Lanjut Publik -->
                 <div class="lg:col-span-8 bg-white rounded-md p-4 sm:p-5 shadow-sm border border-slate-200 space-y-3.5">
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3.5">
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3.5">
                         <div>
-                            <span class="text-xs font-bold uppercase tracking-wider text-taupe-dark">Implementasi Rekomendasi Penelitian</span>
-                            <h2 class="font-display text-base sm:text-lg font-bold text-navy mt-0.5">Matriks Tindak Lanjut Aspirasi Pemuda & Mahasiswa</h2>
-                            <p class="text-xs text-slate-500 mt-0.5">Instrumen pemantauan publik untuk Pemkot Tasikmalaya, Bapemperda DPRD, dan Organisasi Mahasiswa.</p>
+                            <span class="text-xs font-bold uppercase tracking-wider text-taupe-dark">Implementasi
+                                Rekomendasi Penelitian</span>
+                            <h2 class="font-display text-base sm:text-lg font-bold text-navy mt-0.5">Matriks Tindak
+                                Lanjut Aspirasi Pemuda & Mahasiswa</h2>
+                            <p class="text-xs text-slate-500 mt-0.5">Instrumen pemantauan publik untuk Pemkot
+                                Tasikmalaya, Bapemperda DPRD, dan Organisasi Mahasiswa.</p>
                         </div>
 
                         <!-- Tombol Aksi Ekspor & Cetak Laporan -->
@@ -570,16 +772,20 @@
                     <!-- Kontrol Filter & Pencarian -->
                     <div class="flex flex-col sm:flex-row gap-2.5">
                         <div class="relative flex-grow">
-                            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-                            <input type="text" id="search-matriks" onkeyup="renderMatriks()" placeholder="Cari judul kajian, tuntutan, atau organisasi pengusul..."
+                            <i
+                                class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                            <input type="text" id="search-matriks" onkeyup="renderMatriks()"
+                                placeholder="Cari judul kajian, tuntutan, atau organisasi pengusul..."
                                 class="w-full pl-8 pr-3 py-2 text-xs rounded border border-slate-300 input-focus-ring bg-slate-50/50">
                         </div>
-                        <select id="filter-status-matriks" onchange="renderMatriks()" class="px-3 py-2 text-xs rounded border border-slate-300 bg-white text-slate-700 input-focus-ring shrink-0">
+                        <select id="filter-status-matriks" onchange="renderMatriks()"
+                            class="px-3 py-2 text-xs rounded border border-slate-300 bg-white text-slate-700 input-focus-ring shrink-0">
                             <option value="semua">Semua Status Tindak Lanjut</option>
                             <option value="Dibahas di Bapemperda">Dibahas di Bapemperda</option>
                             <option value="Dijadwalkan Public Hearing">Dijadwalkan Public Hearing</option>
-                            <option value="Dalam Kajian Dinas">Dalam Kajian Dinas</option>
-                            <option value="Menunggu Respons">Menunggu Respons</option>
+                            <option value="proses">Dalam Kajian / Menunggu Respons</option>
+                            <option value="Dalam Kajian Dinas">Hanya: Dalam Kajian Dinas</option>
+                            <option value="Menunggu Respons">Hanya: Menunggu Respons</option>
                         </select>
                     </div>
 
@@ -587,7 +793,8 @@
                     <div class="table-matriks-container rounded border border-slate-200">
                         <table class="table-matriks w-full text-left border-collapse">
                             <thead>
-                                <tr class="bg-slate-50 text-[11px] font-bold text-slate-600 uppercase tracking-wider border-b border-slate-200">
+                                <tr
+                                    class="bg-slate-50 text-[11px] font-bold text-slate-600 uppercase tracking-wider border-b border-slate-200">
                                     <th class="py-2.5 px-3.5">Substansi Aspirasi & Pengusul</th>
                                     <th class="py-2.5 px-3.5">Klaster & Bentuk Dokumen</th>
                                     <th class="py-2.5 px-3.5">Instansi Tujuan</th>
@@ -603,27 +810,35 @@
                 </div>
 
                 <!-- Kolom Kanan (4 Kolom): Form Pengajuan Aspirasi / Wadah Konsolidasi -->
-                <div class="lg:col-span-4 bg-taupe-soft rounded-md p-4 sm:p-5 border border-taupe/50 shadow-sm sticky top-5">
+                <div
+                    class="lg:col-span-4 bg-taupe-soft rounded-md p-4 sm:p-5 border border-taupe/50 shadow-sm sticky top-5">
                     <div class="flex items-center gap-2.5 mb-3.5">
-                        <div class="w-9 h-9 rounded bg-navy text-white flex items-center justify-center text-sm shrink-0 shadow-sm">
+                        <div
+                            class="w-9 h-9 rounded bg-navy text-white flex items-center justify-center text-sm shrink-0 shadow-sm">
                             <i class="fa-solid fa-paper-plane"></i>
                         </div>
                         <div>
-                            <h3 class="font-display font-bold text-navy text-sm sm:text-base leading-tight">Wadah Konsolidasi Aksi</h3>
-                            <p class="text-[11px] text-slate-600 mt-0.5">Simulasi unggah kajian/aspirasi ke matriks publik</p>
+                            <h3 class="font-display font-bold text-navy text-sm sm:text-base leading-tight">Wadah
+                                Konsolidasi Aksi</h3>
+                            <p class="text-[11px] text-slate-600 mt-0.5">Simulasi unggah kajian/aspirasi ke matriks
+                                publik</p>
                         </div>
                     </div>
 
                     <form id="form-aspirasi" onsubmit="tambahAspirasi(event)" class="space-y-3 text-xs">
                         <div>
-                            <label for="input-pengusul" class="block font-semibold text-navy mb-1">Organisasi / Komunitas Pengusul</label>
-                            <input type="text" id="input-pengusul" required placeholder="Contoh: HMJ Ilmu Politik / PMII Komisariat Unsil"
+                            <label for="input-pengusul" class="block font-semibold text-navy mb-1">Organisasi /
+                                Komunitas Pengusul</label>
+                            <input type="text" id="input-pengusul" required
+                                placeholder="Contoh: HMJ Ilmu Politik / PMII Komisariat Unsil"
                                 class="w-full px-3 py-2 rounded border border-slate-300 bg-white input-focus-ring">
                         </div>
 
                         <div>
-                            <label for="input-klaster" class="block font-semibold text-navy mb-1">Klaster Isu Kebijakan</label>
-                            <select id="input-klaster" class="w-full px-3 py-2 rounded border border-slate-300 bg-white input-focus-ring">
+                            <label for="input-klaster" class="block font-semibold text-navy mb-1">Klaster Isu
+                                Kebijakan</label>
+                            <select id="input-klaster"
+                                class="w-full px-3 py-2 rounded border border-slate-300 bg-white input-focus-ring">
                                 <option value="Tata Kelola Pemerintahan">Tata Kelola Pemerintahan</option>
                                 <option value="Lingkungan">Lingkungan</option>
                                 <option value="Pendidikan">Pendidikan</option>
@@ -633,12 +848,15 @@
 
                         <div>
                             <div class="flex items-center justify-between mb-1">
-                                <label for="input-dokumen" class="block font-semibold text-navy">Bentuk Luaran / Dokumen</label>
-                                <button type="button" onclick="showTemplatePanduan()" class="text-[11px] text-slateBlue hover:text-navy underline flex items-center gap-1">
+                                <label for="input-dokumen" class="block font-semibold text-navy">Bentuk Luaran /
+                                    Dokumen</label>
+                                <button type="button" onclick="showTemplatePanduan()"
+                                    class="text-[11px] text-slateBlue hover:text-navy underline flex items-center gap-1">
                                     <i class="fa-regular fa-circle-question"></i> Panduan Format
                                 </button>
                             </div>
-                            <select id="input-dokumen" class="w-full px-3 py-2 rounded border border-slate-300 bg-white input-focus-ring">
+                            <select id="input-dokumen"
+                                class="w-full px-3 py-2 rounded border border-slate-300 bg-white input-focus-ring">
                                 <option value="Policy Brief">Policy Brief (Naskah Kebijakan)</option>
                                 <option value="Kajian Akademis">Kajian Akademis</option>
                                 <option value="Pernyataan Sikap">Pernyataan Sikap & Petisi</option>
@@ -647,9 +865,12 @@
                         </div>
 
                         <div>
-                            <label for="input-instansi" class="block font-semibold text-navy mb-1">Instansi Tujuan</label>
-                            <select id="input-instansi" class="w-full px-3 py-2 rounded border border-slate-300 bg-white input-focus-ring">
-                                <option value="Bapemperda DPRD Kota Tasikmalaya">Bapemperda DPRD Kota Tasikmalaya</option>
+                            <label for="input-instansi" class="block font-semibold text-navy mb-1">Instansi
+                                Tujuan</label>
+                            <select id="input-instansi"
+                                class="w-full px-3 py-2 rounded border border-slate-300 bg-white input-focus-ring">
+                                <option value="Bapemperda DPRD Kota Tasikmalaya">Bapemperda DPRD Kota Tasikmalaya
+                                </option>
                                 <option value="Pemerintah Kota Tasikmalaya">Pemerintah Kota Tasikmalaya</option>
                                 <option value="Dinas Lingkungan Hidup">Dinas Lingkungan Hidup</option>
                                 <option value="Dinas Pendidikan">Dinas Pendidikan</option>
@@ -657,12 +878,15 @@
                         </div>
 
                         <div>
-                            <label for="input-judul" class="block font-semibold text-navy mb-1">Judul Tuntutan / Substansi Kajian</label>
-                            <textarea id="input-judul" rows="3" required placeholder="Tuliskan ringkasan tuntutan atau rekomendasi kebijakan..."
+                            <label for="input-judul" class="block font-semibold text-navy mb-1">Judul Tuntutan /
+                                Substansi Kajian</label>
+                            <textarea id="input-judul" rows="3" required
+                                placeholder="Tuliskan ringkasan tuntutan atau rekomendasi kebijakan..."
                                 class="w-full px-3 py-2 rounded border border-slate-300 bg-white input-focus-ring resize-none"></textarea>
                         </div>
 
-                        <button type="submit" class="w-full py-2 px-3.5 rounded bg-navy hover:bg-navy-light text-white font-semibold shadow-sm transition flex items-center justify-center gap-2 cursor-pointer mt-1.5">
+                        <button type="submit"
+                            class="w-full py-2 px-3.5 rounded bg-navy hover:bg-navy-light text-white font-semibold shadow-sm transition flex items-center justify-center gap-2 cursor-pointer mt-1.5">
                             <i class="fa-solid fa-plus-circle"></i>
                             <span>Tambahkan ke Matriks Publik</span>
                         </button>
@@ -677,9 +901,11 @@
     <!-- FOOTER AKADEMIK                                                           -->
     <!-- ========================================================================= -->
     <footer class="bg-white border-t border-slate-200 mt-10 py-5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
             <div>
-                <strong class="text-navy">Kelompok 5 — FISIP Universitas Siliwangi</strong> • Shafa Dwi Trasela, Yasha Anindya, Mirnasari Agustina, Ria Rahma Fauzianti, Suci Rahmawati.
+                <strong class="text-navy">Kelompok 5 — FISIP Universitas Siliwangi</strong> • Shafa Dwi Trasela, Yasha
+                Anindya, Mirnasari Agustina, Ria Rahma Fauzianti, Suci Rahmawati.
             </div>
             <div class="text-slate-400 text-[11px]">
                 Purwarupa Akademik • Perilaku dan Etika Politik (2026)
@@ -688,4 +914,5 @@
     </footer>
 
 </body>
+
 </html>
