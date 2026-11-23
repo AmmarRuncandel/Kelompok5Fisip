@@ -1,0 +1,463 @@
+/**
+ * STYLING: Peta Partisipasi Politik Non-Konvensional & Matriks Tindak Lanjut Aspirasi
+ * Studi Kasus Mahasiswa FISIP Universitas Siliwangi (Unsil) - Kelompok 5
+ * Desain: "Kotak namun tidak tajam" (Modern Subtle Radius 4px - 6px, Anti Tumpang Tindih)
+ */
+
+:root {
+    --navy: #1B365D;
+    --navy-dark: #12243F;
+    --navy-light: #2A4D7E;
+    --slate-blue: #3B5B78;
+    --slate-blue-light: #52789B;
+    --slate-blue-soft: #EBF1F6;
+    --taupe: #BFA898;
+    --taupe-dark: #9E8574;
+    --taupe-light: #DFD2C8;
+    --taupe-soft: #F7F4F1;
+    --bg-page: #F8FAFC;
+    --text-main: #1E293B;
+    --text-muted: #64748B;
+    --border-light: #E2E8F0;
+    --shadow-soft: 0 2px 10px -1px rgba(27, 54, 93, 0.06);
+    --shadow-elevated: 0 6px 18px -3px rgba(27, 54, 93, 0.1);
+    
+    /* Konsep Kotak Namun Tidak Tajam: radius 4px - 6px */
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+}
+
+/* ==========================================================================
+   Base & Resets
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar - Kotak halus */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: var(--radius-xs);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--slate-blue-light);
+}
+
+/* ==========================================================================
+   Animasi & Transisi
+   ========================================================================== */
+.tab-transition {
+    animation: fadeInTab 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInTab {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.25s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ==========================================================================
+   Header & Navigasi Tab
+   ========================================================================== */
+.header-academic {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+    position: relative;
+    border-bottom: 3px solid var(--taupe);
+}
+
+.header-academic::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(191, 168, 152, 0.12) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.tab-nav-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tab-btn {
+    position: relative;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.tab-btn:hover:not(.active) {
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.tab-btn.active {
+    box-shadow: 0 3px 10px rgba(191, 168, 152, 0.3);
+}
+
+/* ==========================================================================
+   Kartu Ekosistem (Tab 1) - Kotak Proporsional
+   ========================================================================== */
+.ekosistem-card {
+    transition: all 0.2s ease;
+    border-width: 2px;
+    border-radius: var(--radius-md);
+    position: relative;
+}
+
+.ekosistem-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-elevated);
+}
+
+.ekosistem-card.card-active {
+    border-color: #F59E0B !important;
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3), var(--shadow-elevated);
+}
+
+.list-aksi-item {
+    transition: all 0.15s ease;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+}
+
+.list-aksi-item:hover {
+    transform: translateX(3px);
+    background-color: #FFFFFF;
+    border-color: var(--navy);
+    box-shadow: 0 2px 6px rgba(27, 54, 93, 0.08);
+}
+
+.isu-filter-btn {
+    transition: all 0.15s ease;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+}
+
+.isu-filter-btn:hover:not(.active) {
+    background-color: var(--taupe-soft);
+    color: var(--navy);
+}
+
+/* ==========================================================================
+   Peta Skematis & Pin Lokasi (Tab 2)
+   ========================================================================== */
+.map-canvas-wrapper {
+    position: relative;
+    border-radius: var(--radius-md);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.map-pin {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    transform-origin: center;
+}
+
+.map-pin:hover {
+    transform: scale(1.12);
+}
+
+.map-pin:active {
+    transform: scale(1.05);
+}
+
+.map-pin.pin-active circle:nth-child(2) {
+    stroke: #F59E0B !important;
+    stroke-width: 4 !important;
+}
+
+.pulse-ring {
+    animation: pulseRing 2.4s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    transform-origin: center;
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(0.85);
+        opacity: 0.85;
+    }
+    70% {
+        transform: scale(1.85);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.85);
+        opacity: 0;
+    }
+}
+
+.loc-btn {
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: all 0.15s ease;
+}
+
+.loc-btn:hover:not(.active) {
+    border-color: var(--navy);
+    background-color: var(--slate-blue-soft);
+}
+
+/* Pencegahan Tumpang Tindih pada Kartu Detail Lokasi */
+#map-detail-card {
+    border-radius: var(--radius-md);
+}
+
+#map-detail-card .loc-badge-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+#loc-badge {
+    border-radius: var(--radius-sm);
+    white-space: normal;
+    word-break: break-word;
+    max-width: 100%;
+}
+
+/* ==========================================================================
+   Tabel Matriks & Form Tindak Lanjut (Tab 3)
+   ========================================================================== */
+.table-matriks-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-md);
+}
+
+.table-matriks {
+    min-width: 720px;
+}
+
+.table-matriks tr {
+    transition: background-color 0.15s ease;
+}
+
+.table-matriks tr:hover td {
+    background-color: #F8FAFC;
+}
+
+.input-focus-ring {
+    border-radius: var(--radius-sm);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-focus-ring:focus {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 2px rgba(27, 54, 93, 0.15);
+    outline: none;
+}
+
+/* Progress bar inside table - subtle rounded */
+.progress-bar-container {
+    border-radius: var(--radius-xs);
+}
+
+.progress-bar-fill {
+    border-radius: var(--radius-xs);
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Action button inside table rows */
+.btn-table-action {
+    border-radius: var(--radius-sm);
+    transition: all 0.15s ease;
+    cursor: pointer;
+}
+.btn-table-action:hover {
+    transform: scale(1.08);
+}
+
+/* ==========================================================================
+   Statistik Cards (Tab 3 Quick Filters) - Kotak Modern
+   ========================================================================== */
+.stat-card {
+    border-radius: var(--radius-md);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--navy);
+}
+
+.stat-card.stat-active {
+    border-color: var(--navy) !important;
+    background: #F1F5F9;
+    box-shadow: 0 0 0 2px var(--navy);
+}
+
+/* ==========================================================================
+   Modal Dialogs (Detail Aspirasi & Teori) - Kotak Elegan
+   ========================================================================== */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(18, 36, 63, 0.7);
+    backdrop-filter: blur(3px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeInModal 0.2s ease-out forwards;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content-box {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 42rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-light);
+    animation: scaleUpModal 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scaleUpModal {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ==========================================================================
+   Toast Notification - Kotak Modern
+   ========================================================================== */
+.toast-item {
+    background: var(--navy);
+    color: #FFFFFF;
+    border: 1px solid var(--taupe);
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 20px -3px rgba(0, 0, 0, 0.25);
+    animation: toastSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   Print Styles (Cetak Rekap Matriks Pantauan)
+   ========================================================================== */
+@media print {
+    header, nav, #toast-container, .modal-backdrop, footer, #tab-ekosistem, #tab-peta-tasik, .stat-card, form, .no-print {
+        display: none !important;
+    }
+
+    body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+    }
+
+    #tab-matriks {
+        display: block !important;
+    }
+
+    .table-matriks-container {
+        border: none !important;
+    }
+
+    .table-matriks {
+        min-width: 100% !important;
+        font-size: 10pt !important;
+    }
+
+    .table-matriks th, .table-matriks td {
+        border: 1px solid #CBD5E1 !important;
+        padding: 5pt !important;
+    }
+}
+
+/* ==========================================================================
+   Responsivitas & Optimasi Layar Kecil (Mobile First)
+   ========================================================================== */
+@media (max-width: 640px) {
+    .tab-nav-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.375rem;
+    }
+    
+    .tab-btn {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 0.625rem 0.875rem;
+        font-size: 0.8125rem;
+    }
+
+    .table-matriks {
+        min-width: 650px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-academic h1 {
+        font-size: 1.125rem;
+    }
+    
+    #panel-analisis-teori > div {
+        flex-direction: column;
+    }
+
+    #detail-isu-box {
+        width: 100%;
+    }
+}
